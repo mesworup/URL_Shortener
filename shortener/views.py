@@ -1,6 +1,3 @@
-from django.shortcuts import render
-
-# created views are here.
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
@@ -36,3 +33,8 @@ def delete_url(request, id):
     url = get_object_or_404(ShortURL, id=id, user=request.user)
     url.delete()
     return redirect("dashboard")
+
+#redirect 
+def redirect_url(request, short_code):
+    url = get_object_or_404(ShortURL, short_code=short_code)
+    return redirect(url.original_url)
