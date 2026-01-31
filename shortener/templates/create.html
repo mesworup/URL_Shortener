@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Short URL</title>
+</head>
+<body>
+
+<h2>Create a Short URL</h2>
+
+<p>
+    <a href="{% url 'dashboard' %}">Back to Dashboard</a>
+</p>
+
+<hr>
+
+<form method="post">
+    {% csrf_token %}
+
+    <p>
+        <label>Original URL:</label><br>
+        {{ form.original_url }}
+    </p>
+
+    <p>
+        <label>Custom Short Code (optional):</label><br>
+        {{ form.custom_code }}
+    </p>
+
+    <p>
+        <label>Expiration Time (optional):</label><br>
+        {{ form.expires_at }}
+    </p>
+
+    {% if form.errors %}
+        <ul style="color:red;">
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <button type="submit">Create Short URL</button>
+</form>
+
+</body>
+</html>

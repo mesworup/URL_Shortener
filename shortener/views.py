@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+# created views are here.
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
@@ -30,3 +30,9 @@ def create_short_url(request):
             return redirect("dashboard")
 
     return render(request, "create.html", {"form": form})
+
+@login_required
+def delete_url(request, id):
+    url = get_object_or_404(ShortURL, id=id, user=request.user)
+    url.delete()
+    return redirect("dashboard")

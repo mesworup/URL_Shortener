@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+
+<h2>Welcome, {{ request.user.username }}</h2>
+
+<p>
+    <a href="{% url 'create' %}">Create New Short URL</a> |
+    <a href="{% url 'logout' %}">Logout</a>
+</p>
+
+<hr>
+
+<h3>Your Short URLs</h3>
+
+{% if urls %}
+<table border="1" cellpadding="8">
+    <tr>
+        <th>Original URL</th>
+        <th>Short URL</th>
+        <th>Clicks</th>
+        <th>Created At</th>
+        <th>Action</th>
+    </tr>
+
+    {% for url in urls %}
+    <tr>
+        <td>{{ url.original_url }}</td>
+        <td>
+            <a href="/{{ url.short_code }}/" target="_blank">
+                {{ request.get_host }}/{{ url.short_code }}
+            </a>
+        </td>
+        <td>{{ url.clicks }}</td>
+        <td>{{ url.created_at }}</td>
+        <td>
+            <a href="{% url 'delete' url.id %}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>You have not created any short URLs yet.</p>
+{% endif %}
+
+</body>
+</html>

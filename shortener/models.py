@@ -1,6 +1,7 @@
 from django.db import models
 
-# Create your models here.
+# created models are here.
+# databaase model
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
