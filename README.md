@@ -22,25 +22,22 @@ This project was developed as part of a Junior Backend Engineer (Python) technic
 
 📂 Project Structure
 urlshortener/
-│
 ├── shortener/
-│   ├── migrations/
-│   ├── templates/
-│   │   ├── dashboard.html
-│   │   ├── create.html
-│   │   └── registration/
-│   │       └── login.html
-│   ├── models.py
-│   ├── views.py
-│   ├── forms.py
-│   ├── urls.py
-│   └── utils.py
-│
+│ ├── migrations/
+│ ├── templates/
+│ │ ├── dashboard.html
+│ │ ├── create.html
+│ │ └── registration/
+│ │ └── login.html
+│ ├── models.py
+│ ├── views.py
+│ ├── forms.py
+│ ├── urls.py
+│ └── utils.py
 ├── urlshortener/
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-│
+│ ├── settings.py
+│ ├── urls.py
+│ └── wsgi.py
 ├── manage.py
 ├── requirements.txt
 └── README.md
