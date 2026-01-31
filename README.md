@@ -66,7 +66,7 @@ urlshortener/
     # venv\Scripts\activate
     </pre>
 3️⃣ Install Dependencies
-    <pre>pip install -r requirements.txt
+    <pre>pip install django pillow qrcode
     </pre>
 4️⃣ Apply Migrations
     <pre>python manage.py makemigrations
